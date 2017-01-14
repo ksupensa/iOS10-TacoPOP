@@ -6,13 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="mainVC" customModule="TacoPOP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="TacoPOP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,11 +22,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDU-e1-r7D" customClass="HeaderView" customModule="TacoPOP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TacoPop" translatesAutoresizingMaskIntoConstraints="NO" id="6l1-H3-zpJ">
+                                        <rect key="frame" x="122" y="8" width="131" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="3kh-qu-9gc"/>
+                                            <constraint firstAttribute="width" secondItem="6l1-H3-zpJ" secondAttribute="height" multiplier="147:73" id="wE7-ct-V3N"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="6l1-H3-zpJ" firstAttribute="centerY" secondItem="IDU-e1-r7D" secondAttribute="centerY" id="C2b-4Z-3h5"/>
+                                    <constraint firstAttribute="height" constant="80" id="PlU-ec-pjb"/>
+                                    <constraint firstItem="6l1-H3-zpJ" firstAttribute="centerX" secondItem="IDU-e1-r7D" secondAttribute="centerX" id="cTD-qi-6Ki"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nVC-K7-2Yp">
+                                <rect key="frame" x="16" y="100" width="343" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1fy-bB-Szc">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nVC-K7-2Yp" secondAttribute="bottom" constant="20" id="3xU-Iu-o9K"/>
+                            <constraint firstItem="IDU-e1-r7D" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5rz-9d-dws"/>
+                            <constraint firstAttribute="trailing" secondItem="IDU-e1-r7D" secondAttribute="trailing" id="6CI-Bg-fAu"/>
+                            <constraint firstItem="nVC-K7-2Yp" firstAttribute="top" secondItem="IDU-e1-r7D" secondAttribute="bottom" constant="20" id="7Ur-pi-gwA"/>
+                            <constraint firstItem="IDU-e1-r7D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dgF-mP-nMa"/>
+                            <constraint firstItem="nVC-K7-2Yp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kIo-PD-qiz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nVC-K7-2Yp" secondAttribute="trailing" id="yzV-rd-2DU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="nVC-K7-2Yp" id="zhX-1L-6Q7"/>
+                        <outlet property="headerView" destination="IDU-e1-r7D" id="Nf9-Hb-9Lr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="0.80000000000000004" y="40.929535232383813"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TacoPop" width="330" height="165"/>
+    </resources>
 </document>
